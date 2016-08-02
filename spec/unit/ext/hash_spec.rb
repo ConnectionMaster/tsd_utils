@@ -64,4 +64,40 @@ describe Hash do
         .to be(false)
     end
   end
+
+  context 'case sensitivity related function' do
+    let(:stringy_hash) { subject.deep_stringify_keys }
+
+    describe '#get_ikey' do
+      it 'returns value, if key is nil and exists' do
+        stringy_hash[nil] = 'nil-hilist'
+
+        expect(stringy_hash.get_ikey(nil)).to eq('nil-hilist')
+      end
+
+      it 'returns value, if key exists' do
+        expect(stringy_hash.get_ikey('ID')).to be(1)
+      end
+
+      it 'returns nil, if key does not exist' do
+        expect(stringy_hash.get_ikey('not_really_existing')).to be(nil)
+      end
+    end
+
+    describe '#has_ikey?' do
+      it 'returns true, if key is nil and exists' do
+        stringy_hash[nil] = 'nil-hilist'
+
+        expect(stringy_hash.ikey?(nil)).to be(true)
+      end
+
+      it 'returns true, if key exists' do
+        expect(stringy_hash.ikey?('ID')).to be(true)
+      end
+
+      it 'returns false, if key does not exist' do
+        expect(stringy_hash.ikey?('not_really_existing')).to be(false)
+      end
+    end
+  end
 end
