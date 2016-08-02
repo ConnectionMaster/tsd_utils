@@ -1,3 +1,5 @@
+[![Build
+Status](https://travis-ci.org/AVGTechnologies/tsd_utils.svg?branch=master)](https://travis-ci.org/AVGTechnologies/tsd_utils)
 # TsdUtils
 
 Library used by Final-CI subsystems to perform operations related to TSD. TSD is an abbreviation for
