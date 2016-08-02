@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EnqueueData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TsdContent>{
+  "tsdVersion": 2,
+  "language": "PowerShell",
+  "responsible": "some-one@some-domain.com",
+  "product": "product",
+  "source": {
+    "git": "value after change|defined in ED Only, defined in ED by Ini|develTSD:defined in TSD by Ini, dev|defined in Ini"
+  },
+  "id": "test_name",
+  "name": "TestName",
+  "description": "DescriptionINI",
+  "defaultStrategy": "Strategy1",
+  "timeout": {
+    "timeout": "00:30:00"
+  },
+  "runtimeConfig": [
+    {
+      "definition": "build",
+      "value": "PRODUCTx1234"
+    },
+    {
+      "definition": "IniConfiguration",
+      "value": "included_products.ini"
+    },
+    {
+      "definition": "definedInTSDChangedInED",
+      "value": "will be changed"
+    },
+    {
+      "definition": "definedInTSDOnly",
+      "value": "develTSD"
+    },
+    {
+      "definition": "definedInTSDByIni",
+      "value": "defined in TSD by Ini"
+    }
+  ],
+  "post": {
+    "notification": ["some-one@some-domain.com"]
+  },
+  "environment": {
+    "machines": [
+      {
+        "name": "XPx86",
+        "cluster": "frodo",
+        "id": "winXPx86"
+      }
+    ]
+  },
+  "strategy": [
+    {
+      "name": "Strategy1",
+      "parts": [
+        {
+          "name": "Part1",
+          "testCases": [
+            {
+              "name": "TestCase1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testCases": [
+    {
+      "name": "TestCase1",
+      "steps": [
+        {
+          "name": "TestStep1",
+          "script": "Passed;"
+        },
+        {
+          "name": "TestStep2",
+          "script": "Passed;"
+        }
+      ]
+    }
+  ]
+}</TsdContent>
+  <Id xsi:nil="true" />
+  <Package>false</Package>
+  <RuntimeConfig>&lt;runtime_config&gt;&lt;definedInEDOnly&gt;defined in ED Only&lt;/definedInEDOnly&gt;&lt;definedInTSDChangedInED&gt;value after change&lt;/definedInTSDChangedInED&gt;&lt;definedInEDByIni&gt;defined in ED by Ini&lt;/definedInEDByIni&gt;&lt;build&gt;PRODUCTx1234&lt;/build&gt;&lt;iniConfiguration&gt;included_products.ini&lt;/iniConfiguration&gt;&lt;definedInTSDOnly&gt;develTSD&lt;/definedInTSDOnly&gt;&lt;definedInTSDByIni&gt;defined in TSD by Ini&lt;/definedInTSDByIni&gt;&lt;/runtime_config&gt;</RuntimeConfig>
+  <Priority xsi:nil="true" />
+  <SaveCheckpoints>false</SaveCheckpoints>
+  <UseVmci xsi:nil="true" />
+  <EnqueueAndStart>true</EnqueueAndStart>
+  <Async xsi:nil="true" />
+  <PersistanceStrategy xsi:nil="true" />
+  <WaitForBuildSignal xsi:nil="true" />
+  <UseStartScript>false</UseStartScript>
+  <Debugging xsi:nil="true" />
+  <BranchMerge xsi:nil="true" />
+  <PackageSource xsi:nil="true" />
+  <Token xsi:nil="true" />
+  <ScenarioStrategy xsi:nil="true" />
+  <LabManagerConfiguration xsi:nil="true" />
+  <ImportAfterFinish xsi:nil="true" />
+  <CreateTasks xsi:nil="true" />
+  <GenerateFullTemplate xsi:nil="true" />
+  <TestCaseResponsibility xsi:nil="true" />
+  <StrictTimeout xsi:nil="true" />
+  <StrategyName>Strategy1</StrategyName>
+  <TsdWebgitLink></TsdWebgitLink>
+  <BuildId>-1</BuildId>
+</EnqueueData>

@@ -1,0 +1,18 @@
+{
+  "tsdType": "upload",
+  "file": "WILL BE UPDATED from *.tsd",
+  "email": "foo.foo@foo.com",
+  "description": "quux",
+  "packageFrom": "GIT",
+  "package": "some_repo|master",
+  "strategy": "Strategy1",
+  "runtimeConfigFields": [
+    {
+      "definition": "iniConfiguration",
+      "value": "test_data_ini_config.ini"
+    }
+  ],
+  "build": "qux",
+  "checkpoints": false,
+  "scenarioScripts": false
+}
