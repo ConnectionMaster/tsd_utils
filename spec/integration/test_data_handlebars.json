@@ -1,0 +1,22 @@
+{
+  "tsdType": "upload",
+  "file": "WILL BE UPDATED from *.tsd",
+  "email": "foo@bar.com",
+  "description": "baz",
+  "packageFrom": "GIT",
+  "package": "some_repo|master",
+  "strategy": "Strategy1",
+  "runtimeConfigFields": [
+    {
+      "definition": "foo",
+      "value": "{{runtimeconfig.bar}}"
+    },
+    {
+      "definition": "bar",
+      "value": "baz"
+    }
+  ],
+  "build": "quux",
+  "checkpoints": false,
+  "scenarioScripts": false
+}

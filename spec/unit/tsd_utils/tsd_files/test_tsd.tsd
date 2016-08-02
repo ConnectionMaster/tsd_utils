@@ -1,0 +1,129 @@
+{
+    "tsdVersion": 2,
+    "product": "some product",
+    "name": "some_product",
+    "id": "some_product",
+    "productionReady": false,
+    "responsible": "someone@somedomain.com",
+    "language": "PowerShell",
+    "description": "product",
+    "timeout": {
+        "timeout": "00:03:00",
+        "type": "strict"
+    },
+    "source": {
+        "git": "some_package_source"
+    },
+    "environment": {
+        "type": "dynamic",
+        "machines": [
+            {
+                "name": "XP_1",
+                "id": "winXPx86",
+                "cluster": "frodo"
+            },
+            {
+                "name": "XP_2",
+                "id": "winXPx86",
+                "cluster": "frodo"
+            },
+            {
+                "name": "7",
+                "id": "win7x86",
+                "cluster": "bilbo"
+            },
+            {
+                "name": "8",
+                "id": "win8x86",
+                "cluster": "bilbo"
+            }
+        ]
+    },
+    "testCases": [
+        {
+            "name": "TestCase1",
+            "steps": [
+                { "name": "TestStep1", "script" : "Passed;" },
+                { "name": "TestStep2", "script" : "Passed;" },
+                { "name": "TestStep3", "script" : "Passed;" },
+                { "name": "TestStep4", "script" : "Passed;" },
+                { "name": "TestStep5", "script" : "Passed;" },
+                { "name": "TestStep6", "script" : "Passed;" }
+            ]
+        }
+    ],
+    "defaultStrategy": "Takes all XP machines",
+    "strategy": [
+        {
+            "name": "Takes all machines",
+            "parts": [
+                {
+                    "name": "Part 1",
+                    "testCases": [
+                        { "name": "*" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Takes all XP machines",
+            "environments": [ "XP*" ],
+            "parts": [
+                {
+                    "name": "Part 2",
+                    "testCases": [
+                        { "name": "*" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Takes 7 and 8 machines",
+            "environments": [ "7", "8" ],
+            "parts": [
+                {
+                    "name": "Part 3",
+                    "testCases": [
+                        { "name": "*" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Takes XP and 7 machines",
+            "environments": [ "XP_1", "7" ],
+            "parts": [
+                {
+                    "name": "Part 4",
+                    "testCases": [
+                        { "name": "*" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Takes XP_2, 7 and 8 machines",
+            "environments": [ "!XP_1" ],
+            "parts": [
+                {
+                    "name": "Part 5",
+                    "testCases": [
+                        { "name": "*" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Takes no machines",
+            "environments": [ "!XP_1", "!XP_2", "!7", "!8" ],
+            "parts": [
+                {
+                    "name": "Part 6",
+                    "testCases": [
+                        { "name": "*" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

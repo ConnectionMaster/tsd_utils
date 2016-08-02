@@ -1,0 +1,61 @@
+{
+  "product": "some_product",
+  "name": "blazingly fast test",
+  "id": "blazingly_fast_test",
+  "responsible": "foo.goo@baz.com",
+  "language": "Powershell",
+  "timeout": {
+    "timeOut": "00:10:00",
+    "type": "Floating"
+  },
+  "post": {
+    "notification": [
+      "bar@baz.com"
+    ],
+    "notifyResponsible": false
+  },
+  "environment": {
+    "type": "Dynamic",
+    "machines": [
+      {
+        "name": "XP",
+        "id": "winXPx86",
+        "cluster": "frodo"
+      }
+    ]
+  },
+  "testCases": [
+    {
+      "name": "TestCase1",
+      "steps": [
+        {
+          "name": "TestStep1",
+          "script": "Passed;"
+        }
+      ]
+    }
+  ],
+  "strategy": [
+    {
+      "name": "Strategy1",
+      "parts": [
+        {
+          "name": "Complete",
+          "testCases": [
+            {
+              "name": "*"
+            }
+          ]
+        }
+      ],
+      "environments": [
+        "XP"
+      ]
+    }
+  ],
+  "source": {
+    "git": "some_repo|master(bar>foo)"
+  },
+  "defaultStrategy": "Strategy1",
+  "tsdVersion": 2
+}

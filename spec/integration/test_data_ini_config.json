@@ -1,0 +1,17 @@
+{
+  "file": "WILL BE UPDATED from *.tsd",
+  "RuntimeConfigFields": [
+    {
+      "value": "defined in ED Only",
+      "definition": "definedInEDOnly"
+    },
+    {
+      "value": "value after change",
+      "definition": "definedInTSDChangedInED"
+    },
+    {
+      "value": "{{ini.package.definedInEDByIni}}",
+      "definition": "definedInEDByIni"
+    }
+  ]
+}
