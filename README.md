@@ -1,6 +1,7 @@
-[![Build
-Status](https://travis-ci.org/AVGTechnologies/tsd_utils.svg?branch=master)](https://travis-ci.org/AVGTechnologies/tsd_utils)
+[![BuildStatus](https://travis-ci.org/AVGTechnologies/tsd_utils.svg?branch=master)](https://travis-ci.org/AVGTechnologies/tsd_utils)
 [![Code Climate](https://codeclimate.com/github/AVGTechnologies/tsd_utils/badges/gpa.svg)](https://codeclimate.com/github/AVGTechnologies/tsd_utils)
+[![Test Coverage](https://codeclimate.com/github/AVGTechnologies/tsd_utils/badges/coverage.svg)](https://codeclimate.com/github/AVGTechnologies/tsd_utils/coverage)
+[![Issue Count](https://codeclimate.com/github/AVGTechnologies/tsd_utils/badges/issue_count.svg)](https://codeclimate.com/github/AVGTechnologies/tsd_utils)
 
 # TsdUtils
 
