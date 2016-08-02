@@ -1,3 +1,6 @@
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
+
 $LOAD_PATH << 'lib'
 require 'rspec'
 require 'tsd_utils'
