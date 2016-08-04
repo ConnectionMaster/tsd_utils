@@ -76,13 +76,12 @@ module TsdUtils
     def build
       normalize_runtime_config
 
+      @enqueue_data['RuntimeConfig'] = RuntimeConfig.merge(@tsd.runtime_config,
+                                                           @enqueue_data['RuntimeConfig'])
+
       ini_file = @enqueue_data['RuntimeConfig'].get_ikey('iniConfiguration')
-      ini_file = @tsd.runtime_config.get_ikey('iniConfiguration') if ini_file.nil?
-
-      @enqueue_data['RuntimeConfig'] = @tsd.runtime_config.merge(@enqueue_data['RuntimeConfig'])
-
       @enqueue_data['RuntimeConfig'] =
-        build_runtime_config(ini_file, @enqueue_data['RuntimeConfig'])
+        RuntimeConfig.build(ini_file, @enqueue_data['RuntimeConfig'])
 
       builder = Tsd::Builder.new(ini_file, @enqueue_data['RuntimeConfig'])
       @enqueue_data.each do |key, val|
@@ -243,29 +242,6 @@ module TsdUtils
 
     def selected_strategy
       @tsd.tsd['strategy'].find { |s| s['name'] == @tsd.tsd['defaultStrategy'] }
-    end
-
-    def expand_runtime_config_moustache(runtime_config, builder)
-      runtime_config.each_with_object({}) do |(k, v), result|
-        result[k] = builder.build(v.to_s)
-      end
-    end
-
-    def build_runtime_config(ini_file, runtime_config)
-      builder = Tsd::Builder.new(ini_file, runtime_config)
-
-      built_runtime_config = runtime_config
-
-      max_iterations = runtime_config.keys.count
-      (1..max_iterations).each do
-        altered_runtime_config = expand_runtime_config_moustache(built_runtime_config, builder)
-        builder = Tsd::Builder.new(ini_file, altered_runtime_config)
-
-        break if altered_runtime_config == built_runtime_config
-        built_runtime_config = altered_runtime_config
-      end
-
-      built_runtime_config
     end
   end
 end

@@ -69,11 +69,9 @@ module TsdUtils
       end
     end
 
-    def build_tsd(custom_runtime_config)
-      r_config = runtime_config.merge(custom_runtime_config)
-
-      ini_file = r_config['iniConfiguration']
-      builder = Builder.new(ini_file, r_config)
+    def build_tsd(merged_runtime_config)
+      ini_file = merged_runtime_config.get_ikey('iniConfiguration')
+      builder = Builder.new(ini_file, merged_runtime_config)
 
       mustached_tsd = JSON.parse(builder.build(JSON.pretty_generate(@tsd)))
       mustached_tsd['runtimeConfig'] = build_runtime_config(builder)

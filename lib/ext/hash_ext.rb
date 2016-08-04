@@ -4,12 +4,22 @@ class Hash
   def get_ikey(key_name)
     return self[nil] if key_name.nil?
     each do |key, value|
-      # rubocop:disable NumericPredicate
-      return value if key.try(:casecmp, key_name) == 0
-      # rubocop:enable NumericPredicate
+      next unless key.is_a?(String)
+      return value if key.casecmp(key_name).zero?
     end
 
     nil
+  end
+
+  # Allows to check whether key is present, case insensitively
+  def ikey?(key_name)
+    return key?(nil) if key_name.nil?
+    each do |key, _|
+      next unless key.is_a?(String)
+      return true if key.casecmp(key_name).zero?
+    end
+
+    false
   end
 
   # Normalizes all keys in hash to string
